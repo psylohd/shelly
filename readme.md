@@ -1,7 +1,7 @@
 # Shelly
 v 0.0.1
 
-A wrapper for socat and nc with reverse shell generation, a http server for payload uploads.
+A wrapper for socat and nc with reverse shell generation, a http server for payload uploads, and some other cool stuff (wip).
 
 Features
 
@@ -20,3 +20,5 @@ TODO:
 *   fetch latest versions of tools intead of a fixed version
 *   revshell Encoding
 *   fully interactive wrapper with commands ??? See termux for example ???
+
+<img width="1306" height="353" alt="image" src="https://github.com/user-attachments/assets/24b30700-4c53-4b2b-a32c-b98aca2c5bc3" />
