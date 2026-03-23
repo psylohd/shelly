@@ -22,6 +22,8 @@ type Session struct {
 	Status       SessionStatus
 	Created      time.Time
 	LastActivity time.Time
+	OS           string
+	Shell        string
 	RW           io.ReadWriteCloser
 }
 

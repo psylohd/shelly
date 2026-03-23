@@ -119,20 +119,7 @@ func main() {
 	// Bridge to allow UI to trigger listener start
 	var program *tea.Program
 
-	if isAuto {
-		// Immediate run
-		m.ListenerRunning = true
-	} else {
-		// Interactive setup
-		m.Terminal += "\n[*] Interactive setup complete."
-		m.Terminal += "\n[*] Options set based on your choice."
-		m.Terminal += "\n[*] Use the 'run' command to start the listener."
-		m.PrintPayloads()
-	}
-
-	program = tea.NewProgram(m, tea.WithAltScreen())
-
-	// Set up listener start callback after program is created
+	// Set up listener start callback before program is created
 	m.OnStartListener = func(host string, port int) {
 		log.Printf("[MAIN] Starting listener on %s:%d", host, port)
 		// Rollback to specific interface binding
@@ -151,6 +138,19 @@ func main() {
 			program.Send(ui.StatusMsg(fmt.Sprintf("[*] Listener successfully started on %s:%d", host, port)))
 		}
 	}
+
+	if isAuto {
+		// Immediate run
+		m.ListenerRunning = true
+	} else {
+		// Interactive setup
+		m.Terminal += "\n[*] Interactive setup complete."
+		m.Terminal += "\n[*] Options set based on your choice."
+		m.Terminal += "\n[*] Use the 'run' command to start the listener."
+		m.PrintPayloads()
+	}
+
+	program = tea.NewProgram(m, tea.WithAltScreen())
 
 	if isAuto {
 		go func() {

