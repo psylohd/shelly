@@ -1,0 +1,1 @@
+/home/intox/dev/shelly/target/debug/shelly: /home/intox/dev/shelly/src/config.rs /home/intox/dev/shelly/src/helpers.rs /home/intox/dev/shelly/src/main.rs /home/intox/dev/shelly/src/serve.rs /home/intox/dev/shelly/src/session.rs /home/intox/dev/shelly/src/shell.rs

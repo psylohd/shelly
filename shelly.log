@@ -1,0 +1,79 @@
+2026/03/23 21:59:18 main.go:36: === Shelly started with args: [./shelly_test -p 4444 -i 10.0.0.179]
+2026/03/23 21:59:18 main.go:160: Starting bubbletea program
+2026/03/23 21:59:18 main.go:122: [MAIN] Starting listener on 10.0.0.179:4444
+2026/03/23 21:59:18 listener.go:43: [LISTENER] Listening on 10.0.0.179:4444
+2026/03/23 21:59:18 main.go:135: [MAIN] Listener started successfully
+2026/03/23 21:59:24 listener.go:60: [LISTENER] New session 1 from 10.0.20.3:46590
+2026/03/23 21:59:24 ui.go:142: [UI] New session 1 from 10.0.20.3:46590
+2026/03/23 21:59:24 ui.go:401: [DEBUG] Session 1 read 58 bytes
+2026/03/23 21:59:24 ui.go:131: [UI] Session data (58 bytes): ]0;mtfd@goose: ~[01;32mmtfd@goose[00m:[01;34m~[00m$ 
+2026/03/23 21:59:27 ui.go:192: [UI] Session 1 input: ls
+2026/03/23 21:59:27 ui.go:401: [DEBUG] Session 1 read 2 bytes
+2026/03/23 21:59:27 ui.go:131: [UI] Session data (2 bytes): ls
+2026/03/23 21:59:27 ui.go:401: [DEBUG] Session 1 read 1 bytes
+2026/03/23 21:59:27 ui.go:131: [UI] Session data (1 bytes): 
+2026/03/23 21:59:27 ui.go:401: [DEBUG] Session 1 read 142 bytes
+2026/03/23 21:59:27 ui.go:129: [UI] Session data (142 bytes): NVIDIA-Linux-x86_64-580.126.18.run
+cloudflared.deb
+cuda-samples
+deezer
+dev
+docker
+go
+godeez
+index.ht...
+2026/03/23 21:59:27 ui.go:401: [DEBUG] Session 1 read 58 bytes
+2026/03/23 21:59:27 ui.go:131: [UI] Session data (58 bytes): ]0;mtfd@goose: ~[01;32mmtfd@goose[00m:[01;34m~[00m$ 
+2026/03/23 21:59:29 ui.go:192: [UI] Session 1 input: pwd
+2026/03/23 21:59:29 ui.go:401: [DEBUG] Session 1 read 3 bytes
+2026/03/23 21:59:29 ui.go:131: [UI] Session data (3 bytes): pwd
+2026/03/23 21:59:29 ui.go:401: [DEBUG] Session 1 read 70 bytes
+2026/03/23 21:59:29 ui.go:131: [UI] Session data (70 bytes): 
+/home/mtfd
+]0;mtfd@goose: ~[01;32mmtfd@goose[00m:[01;34m~[00m$ 
+2026/03/23 22:03:55 main.go:166: Bubbletea program ended
+2026/03/23 22:03:56 main.go:36: === Shelly started with args: [./shelly_test -p 4444 -i 10.0.0.179]
+2026/03/23 22:03:56 main.go:161: Starting bubbletea program
+2026/03/23 22:03:56 main.go:123: [MAIN] Starting listener on 10.0.0.179:4444
+2026/03/23 22:03:56 listener.go:43: [LISTENER] Listening on 10.0.0.179:4444
+2026/03/23 22:03:56 main.go:136: [MAIN] Listener started successfully
+2026/03/23 22:03:59 main.go:167: Bubbletea program ended
+2026/03/23 22:04:03 main.go:36: === Shelly started with args: [./shelly_test -p 4444]
+2026/03/23 22:04:05 main.go:95: [MAIN] Selected interface: 10.0.0.179
+2026/03/23 22:04:05 main.go:161: Starting bubbletea program
+2026/03/23 22:04:07 ui.go:288: [UI] Run command: LHOST=10.0.0.179, LPORT=4444
+2026/03/23 22:04:07 ui.go:149: [UI] StartListenerMsg received: host=10.0.0.179 port=4444
+2026/03/23 22:04:07 main.go:123: [MAIN] Starting listener on 10.0.0.179:4444
+2026/03/23 22:04:07 listener.go:43: [LISTENER] Listening on 10.0.0.179:4444
+2026/03/23 22:04:07 main.go:136: [MAIN] Listener started successfully
+2026/03/23 22:05:07 listener.go:60: [LISTENER] New session 1 from 10.0.20.3:54488
+2026/03/23 22:05:51 main.go:36: === Shelly started with args: [./shelly_test -p 4444]
+2026/03/23 22:05:53 main.go:95: [MAIN] Selected interface: 10.0.0.179
+2026/03/23 22:05:53 main.go:162: Starting bubbletea program
+2026/03/23 22:05:57 ui.go:288: [UI] Run command: LHOST=10.0.0.179, LPORT=4444
+2026/03/23 22:05:57 ui.go:149: [UI] StartListenerMsg received: host=10.0.0.179 port=4444
+2026/03/23 22:05:57 ui.go:153: [UI] OnStartListener is nil
+2026/03/23 22:06:15 main.go:168: Bubbletea program ended
+2026/03/23 22:07:24 main.go:36: === Shelly started with args: [./shelly_test -p 4444]
+2026/03/23 22:07:26 main.go:95: [MAIN] Selected interface: 10.0.0.179
+2026/03/23 22:07:26 main.go:162: Starting bubbletea program
+2026/03/23 22:07:36 main.go:168: Bubbletea program ended
+2026/03/23 22:08:00 main.go:36: === Shelly started with args: [./shelly_test -p 4444]
+2026/03/23 22:08:04 main.go:95: [MAIN] Selected interface: 10.0.0.179
+2026/03/23 22:08:04 main.go:162: Starting bubbletea program
+2026/03/23 22:08:05 main.go:168: Bubbletea program ended
+2026/03/23 22:08:09 main.go:36: === Shelly started with args: [./shelly_test -p 4444]
+2026/03/23 22:08:10 main.go:95: [MAIN] Selected interface: 10.0.0.179
+2026/03/23 22:08:10 main.go:162: Starting bubbletea program
+2026/03/23 22:08:31 ui.go:288: [UI] Run command: LHOST=10.0.0.179, LPORT=4444
+2026/03/23 22:08:31 ui.go:149: [UI] StartListenerMsg received: host=10.0.0.179 port=4444
+2026/03/23 22:08:31 ui.go:153: [UI] OnStartListener is nil
+2026/03/23 22:17:15 main.go:36: === Shelly started with args: [./shelly_test -p 4444]
+2026/03/23 22:17:16 main.go:95: [MAIN] Selected interface: 10.0.0.179
+2026/03/23 22:17:22 main.go:168: Bubbletea program ended
+2026/03/23 22:18:08 main.go:36: === Shelly started with args: [./shelly -p 4444]
+2026/03/23 22:18:10 main.go:95: [MAIN] Selected interface: 10.0.0.179
+2026/03/23 22:18:10 main.go:162: Starting bubbletea program
+2026/03/23 22:18:12 ui.go:287: [UI] Run command: LHOST=10.0.0.179, LPORT=4444
+2026/03/23 22:18:12 ui.go:148: [UI] StartListenerMsg received: host=10.0.0.179 port=4444
+2026/03/23 22:18:12 ui.go:152: [UI] OnStartListener is nil

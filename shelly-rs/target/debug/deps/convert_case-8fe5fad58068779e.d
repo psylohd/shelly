@@ -1,0 +1,11 @@
+/home/intox/dev/shelly/target/debug/deps/convert_case-8fe5fad58068779e.d: /home/intox/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/convert_case-0.7.1/src/lib.rs /home/intox/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/convert_case-0.7.1/src/boundary.rs /home/intox/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/convert_case-0.7.1/src/case.rs /home/intox/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/convert_case-0.7.1/src/converter.rs /home/intox/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/convert_case-0.7.1/src/pattern.rs
+
+/home/intox/dev/shelly/target/debug/deps/libconvert_case-8fe5fad58068779e.rlib: /home/intox/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/convert_case-0.7.1/src/lib.rs /home/intox/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/convert_case-0.7.1/src/boundary.rs /home/intox/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/convert_case-0.7.1/src/case.rs /home/intox/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/convert_case-0.7.1/src/converter.rs /home/intox/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/convert_case-0.7.1/src/pattern.rs
+
+/home/intox/dev/shelly/target/debug/deps/libconvert_case-8fe5fad58068779e.rmeta: /home/intox/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/convert_case-0.7.1/src/lib.rs /home/intox/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/convert_case-0.7.1/src/boundary.rs /home/intox/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/convert_case-0.7.1/src/case.rs /home/intox/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/convert_case-0.7.1/src/converter.rs /home/intox/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/convert_case-0.7.1/src/pattern.rs
+
+/home/intox/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/convert_case-0.7.1/src/lib.rs:
+/home/intox/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/convert_case-0.7.1/src/boundary.rs:
+/home/intox/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/convert_case-0.7.1/src/case.rs:
+/home/intox/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/convert_case-0.7.1/src/converter.rs:
+/home/intox/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/convert_case-0.7.1/src/pattern.rs:

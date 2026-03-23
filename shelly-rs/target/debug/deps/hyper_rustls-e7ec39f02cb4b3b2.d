@@ -1,0 +1,11 @@
+/home/intox/dev/shelly/target/debug/deps/hyper_rustls-e7ec39f02cb4b3b2.d: /home/intox/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-rustls-0.27.7/src/lib.rs /home/intox/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-rustls-0.27.7/src/config.rs /home/intox/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-rustls-0.27.7/src/connector.rs /home/intox/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-rustls-0.27.7/src/connector/builder.rs /home/intox/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-rustls-0.27.7/src/stream.rs
+
+/home/intox/dev/shelly/target/debug/deps/libhyper_rustls-e7ec39f02cb4b3b2.rlib: /home/intox/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-rustls-0.27.7/src/lib.rs /home/intox/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-rustls-0.27.7/src/config.rs /home/intox/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-rustls-0.27.7/src/connector.rs /home/intox/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-rustls-0.27.7/src/connector/builder.rs /home/intox/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-rustls-0.27.7/src/stream.rs
+
+/home/intox/dev/shelly/target/debug/deps/libhyper_rustls-e7ec39f02cb4b3b2.rmeta: /home/intox/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-rustls-0.27.7/src/lib.rs /home/intox/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-rustls-0.27.7/src/config.rs /home/intox/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-rustls-0.27.7/src/connector.rs /home/intox/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-rustls-0.27.7/src/connector/builder.rs /home/intox/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-rustls-0.27.7/src/stream.rs
+
+/home/intox/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-rustls-0.27.7/src/lib.rs:
+/home/intox/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-rustls-0.27.7/src/config.rs:
+/home/intox/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-rustls-0.27.7/src/connector.rs:
+/home/intox/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-rustls-0.27.7/src/connector/builder.rs:
+/home/intox/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-rustls-0.27.7/src/stream.rs:
